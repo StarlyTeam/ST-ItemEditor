@@ -1,0 +1,15 @@
+name: ST-ItemEditor
+main: net.starly.itemeditor.ItemEditorMain
+author: Starly Team
+website: https://discord.gg/TF8jqSJjCG
+
+api-version: 1.17
+version: 1.0
+
+softdepend:
+  - ST-Core
+
+commands:
+  itemeditor:
+    description: 아이템 에디터 명령어입니다.
+    aliases: [ie, 아이템, 아이템편집]

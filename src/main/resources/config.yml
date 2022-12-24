@@ -1,0 +1,24 @@
+# 퍼미션 설정 (앞에 "starly.itemeditor."는 자동으로 입력됩니다)
+permission:
+  # 명령어 관련 권한
+  command:
+    # 명령어 사용 권한
+    use: "command.use"
+
+    # 리로드 명령어 사용 권한
+    reload: "command.reload"
+
+    # 아이템 이름 설정 권한
+    name: "command.name"
+
+    # 아이템 커스텀모델데이터 설정 권한
+    custom_model_data: "command.custom_model_data"
+
+    # 아이템 타입 설정 권한
+    type: "command.type"
+
+    # 아이템 인챈트 설정 권한
+    enchant: "command.enchant"
+
+    # 아이템 NBT 설정 권한
+    nbt: "command.nbt"
