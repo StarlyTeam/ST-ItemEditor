@@ -1,8 +1,5 @@
 package net.starly.itemeditor.command;
 
-import net.starly.core.data.Config;
-import net.starly.itemeditor.ItemEditorMain;
-import net.starly.itemeditor.util.NBT;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -114,7 +111,7 @@ public class ItemEditorCommand implements CommandExecutor {
                     item.setItemMeta(itemMeta);
                     p.getInventory().setItemInMainHand(item);
 
-                    p.sendMessage(messageConfig.getMessage("command.custom_model_data", Map.of("{cid}", String.valueOf(cid))));
+                    p.sendMessage(messageConfig.getMessage("command.custom_model_data", Map.of("{custom_model_data}", String.valueOf(cid))));
                 }
 
                 case "타입", "type" -> {
@@ -123,25 +120,22 @@ public class ItemEditorCommand implements CommandExecutor {
                         return true;
                     }
 
-                    if (args.length == 1) {
+                    if (args.length != 2) {
                         p.sendMessage(messageConfig.getMessage("command.wrong_command"));
                         return true;
                     }
-
-                    Material material;
 
                     try {
-                        material = Material.valueOf(args[1].toUpperCase());
-                    } catch (IllegalArgumentException e) {
-                        p.sendMessage(messageConfig.getMessage("command.wrong_command"));
-                        return true;
+                        Material material = Material.valueOf(args[1].toUpperCase());
+
+                        ItemStack newItem = new ItemStack(material);
+                        newItem.setItemMeta(item.getItemMeta());
+                        p.getInventory().setItemInMainHand(newItem);
+
+                        p.sendMessage(messageConfig.getMessage("command.type.success", Map.of("{type}", material.name())));
+                    } catch (Exception e) {
+                        p.sendMessage(messageConfig.getMessage("command.type.fail"), args[1].toUpperCase());
                     }
-
-                    ItemStack newItem = new ItemStack(material);
-                    newItem.setItemMeta(item.getItemMeta());
-                    p.getInventory().setItemInMainHand(newItem);
-
-                    p.sendMessage(messageConfig.getMessage("command.type", Map.of("{type}", material.name())));
                 }
 
                 case "로어", "lore" -> {
@@ -163,8 +157,8 @@ public class ItemEditorCommand implements CommandExecutor {
                             }
 
                             if (args.length == 2) {
-                                p.sendMessage(messageConfig.getMessage("command.lore.view.list", Map.of("{list}", String.join(messageConfig.getConfig().getString("command.lore.delimiter"),
-                                        item.getItemMeta().getLore()))));
+                                messageConfig.getMessages("command.lore.view.list", Map.of("{list}", String.join(messageConfig.getConfig().getString("command.lore.view.delimiter"),
+                                        item.getItemMeta().getLore()))).forEach(p::sendMessage);
                             } else if (args.length == 3) {
                                 int index;
 
@@ -175,12 +169,12 @@ public class ItemEditorCommand implements CommandExecutor {
                                     return true;
                                 }
 
-                                if (index < 0 || index >= item.getItemMeta().getLore().size()) {
+                                if (index < 0 || item.getItemMeta().getLore() == null || index >= item.getItemMeta().getLore().size()) {
                                     p.sendMessage(messageConfig.getMessage("command.lore.no_lore"));
                                     return true;
                                 }
 
-                                p.sendMessage(messageConfig.getMessage("command.lore.view.list", Map.of("{list}", item.getItemMeta().getLore().get(index))));
+                                messageConfig.getMessages("command.lore.view.list", Map.of("{list}", item.getItemMeta().getLore().get(index))).forEach(p::sendMessage);
                                 return true;
                             } else {
                                 p.sendMessage(messageConfig.getMessage("command.wrong_command"));
@@ -316,8 +310,8 @@ public class ItemEditorCommand implements CommandExecutor {
                             }
 
                             if (args.length == 2) {
-                                p.sendMessage(messageConfig.getMessage("command.enchant.view.list", Map.of("{list}", String.join(messageConfig.getConfig().getString("command.enchant.delimiter"),
-                                        item.getItemMeta().getEnchants().entrySet().stream().map(entry -> entry.getKey().getKey().getKey() + " " + entry.getValue()).collect(Collectors.toList())))));
+                                messageConfig.getMessages("command.enchant.view.list", Map.of("{list}", String.join(messageConfig.getConfig().getString("command.enchant.delimiter"),
+                                        item.getItemMeta().getEnchants().entrySet().stream().map(entry -> entry.getKey().getKey().getKey() + " " + entry.getValue()).collect(Collectors.toList())))).forEach(p::sendMessage);
                             } else if (args.length == 3) {
                                 Enchantment enchantment = Enchantment.getByKey(NamespacedKey.minecraft(args[2]));
 
@@ -331,7 +325,7 @@ public class ItemEditorCommand implements CommandExecutor {
                                     return true;
                                 }
 
-                                p.sendMessage(messageConfig.getMessage("command.enchant.view.list", Map.of("{list}", enchantment.getKey().getKey() + " " + item.getItemMeta().getEnchants().get(enchantment))));
+                                messageConfig.getMessages("command.enchant.view.list", Map.of("{list}", enchantment.getKey().getKey() + " " + item.getItemMeta().getEnchants().get(enchantment))).forEach(p::sendMessage);
                                 return true;
                             } else {
                                 p.sendMessage(messageConfig.getMessage("command.wrong_command"));
@@ -443,30 +437,13 @@ public class ItemEditorCommand implements CommandExecutor {
                                 return true;
                             }
 
-                            if (args.length == 2) {
-                                p.sendMessage(messageConfig.getMessage("command.flag.view.list", Map.of("{list}", String.join(messageConfig.getConfig().getString("command.flag.delimiter"),
-                                        item.getItemMeta().getItemFlags().stream().map(ItemFlag::name).collect(Collectors.toList())))));
-                            } else if (args.length == 3) {
-                                ItemFlag itemFlag;
-
-                                try {
-                                    itemFlag = ItemFlag.valueOf(args[2].toUpperCase());
-                                } catch (IllegalArgumentException e) {
-                                    p.sendMessage(messageConfig.getMessage("command.wrong_command"));
-                                    return true;
-                                }
-
-                                if (!item.getItemMeta().getItemFlags().contains(itemFlag)) {
-                                    p.sendMessage(messageConfig.getMessage("command.flag.no_flag"));
-                                    return true;
-                                }
-
-                                p.sendMessage(messageConfig.getMessage("command.flag.view.list", Map.of("{list}", itemFlag.name())));
-                                return true;
-                            } else {
+                            if (args.length != 2) {
                                 p.sendMessage(messageConfig.getMessage("command.wrong_command"));
                                 return true;
                             }
+
+                            messageConfig.getMessages("command.flag.view.list", Map.of("{list}", String.join(messageConfig.getConfig().getString("command.flag.view.delimiter"),
+                                    item.getItemMeta().getItemFlags().stream().map(ItemFlag::name).collect(Collectors.toList())))).forEach(p::sendMessage);
                         }
 
                         case "추가", "add" -> {
@@ -539,180 +516,6 @@ public class ItemEditorCommand implements CommandExecutor {
                     }
                 }
 
-                case "NBT" -> {
-                    if (!p.hasPermission("starly.itemeditor." + config.getString("permission.command.nbt"))) {
-                        p.sendMessage(messageConfig.getMessage("command.no_permission"));
-                        return true;
-                    }
-
-                    if (args.length == 1) {
-                        p.sendMessage(messageConfig.getMessage("command.wrong_command"));
-                        return true;
-                    }
-
-                    switch (args[1].toLowerCase()) {
-                        case "보기", "view" -> {
-                            if (args.length == 2) {
-                                Map<String, String> tags = NBT.getAllStringTag(item);
-                                tags.remove("display");
-
-                                StringBuilder sb = new StringBuilder();
-                                tags.forEach((key, value) -> sb.append(key + " : " + value + messageConfig.getConfig().getString("command.nbt.delimiter")));
-
-                                p.sendMessage(messageConfig.getMessage("command.nbt.view.list", Map.of("{list}", sb.toString())));
-                                return true;
-                            }
-
-                            if (args.length != 4) {
-                                p.sendMessage(messageConfig.getMessage("command.wrong_command"));
-                                return true;
-                            }
-
-                            switch (args[2].toLowerCase()) {
-                                case "정수", "int" -> {
-                                    p.sendMessage(messageConfig.getMessage("command.nbt.view",
-                                            Map.of("{key}", args[3],
-                                                    "{value}", String.valueOf(NBT.getIntegerTag(item, args[3])))));
-                                }
-
-                                case "문자열", "string" -> {
-                                    p.sendMessage(messageConfig.getMessage("command.nbt.view",
-                                            Map.of("{key}", args[3],
-                                                    "{value}", NBT.getStringTag(item, args[3]))));
-                                }
-
-                                case "부동소수점", "double" -> {
-                                    p.sendMessage(messageConfig.getMessage("command.nbt.view",
-                                            Map.of("{key}", args[3],
-                                                    "{value}", String.valueOf(NBT.getDoubleTag(item, args[3])))));
-                                }
-
-                                case "실수", "float" -> {
-                                    p.sendMessage(messageConfig.getMessage("command.nbt.view",
-                                            Map.of("{key}", args[3],
-                                                    "{value}", String.valueOf(NBT.getFloatTag(item, args[3])))));
-                                }
-
-                                case "롱", "long" -> {
-                                    p.sendMessage(messageConfig.getMessage("command.nbt.view",
-                                            Map.of("{key}", args[3],
-                                                    "{value}", String.valueOf(NBT.getLongTag(item, args[3])))));
-                                }
-
-                                case "바이트", "byte" -> {
-                                    p.sendMessage(messageConfig.getMessage("command.nbt.view",
-                                            Map.of("{key}", args[3],
-                                                    "{value}", String.valueOf(NBT.getByteTag(item, args[3])))));
-                                }
-
-                                case "숏", "short" -> {
-                                    p.sendMessage(messageConfig.getMessage("command.nbt.view",
-                                            Map.of("{key}", args[3],
-                                                    "{value}", String.valueOf(NBT.getShortTag(item, args[3])))));
-                                }
-
-                                default -> {
-                                    p.sendMessage(messageConfig.getMessage("command.wrong_command"));
-                                    return true;
-                                }
-                            }
-                        }
-
-                        case "설정", "set" -> {
-                            if (args.length != 5) {
-                                p.sendMessage(messageConfig.getMessage("command.wrong_command"));
-                                return true;
-                            }
-
-                            switch (args[2].toLowerCase()) {
-                                case "정수", "int" -> {
-                                    try {
-                                        p.getInventory().setItemInMainHand(NBT.setIntTag(item, args[3], Integer.parseInt(args[4])));
-                                    } catch (Exception e) {
-                                        p.sendMessage(messageConfig.getMessage("command.nbt.not_valid"));
-                                        return false;
-                                    }
-                                    return false;
-                                }
-
-                                case "문자열", "string" -> {
-                                    try {
-                                        p.getInventory().setItemInMainHand(NBT.setStringTag(item, args[3], args[4]));
-                                    } catch (Exception e) {
-                                        p.sendMessage(messageConfig.getMessage("command.nbt.not_valid"));
-                                        return false;
-                                    }
-                                    return false;
-                                }
-
-                                case "부동소수점", "double" -> {
-                                    try {
-                                        p.getInventory().setItemInMainHand(NBT.setDoubleTag(item, args[3], Double.parseDouble(args[4])));
-                                    } catch (Exception e) {
-                                        p.sendMessage(messageConfig.getMessage("command.nbt.not_valid"));
-                                    }
-                                    return false;
-                                }
-
-                                case "실수", "float" -> {
-                                    try {
-                                        p.getInventory().setItemInMainHand(NBT.setFloatTag(item, args[3], Float.parseFloat(args[4])));
-                                    } catch (Exception e) {
-                                        p.sendMessage(messageConfig.getMessage("command.nbt.not_valid"));
-                                    }
-                                    return false;
-                                }
-
-                                case "롱", "long" -> {
-                                    try {
-                                        p.getInventory().setItemInMainHand(NBT.setLongTag(item, args[3], Long.parseLong(args[4])));
-                                    } catch (Exception e) {
-                                        p.sendMessage(messageConfig.getMessage("command.nbt.not_valid"));
-                                    }
-                                    return false;
-                                }
-
-                                case "바이트", "byte" -> {
-                                    try {
-                                        p.getInventory().setItemInMainHand(NBT.setByteTag(item, args[3], Byte.parseByte(args[4])));
-                                    } catch (Exception e) {
-                                        p.sendMessage(messageConfig.getMessage("command.nbt.not_valid"));
-                                    }
-                                    return false;
-                                }
-
-                                case "숏", "short" -> {
-                                    try {
-                                        p.getInventory().setItemInMainHand(NBT.setShortTag(item, args[3], Short.parseShort(args[4])));
-                                    } catch (Exception e) {
-                                        p.sendMessage(messageConfig.getMessage("command.nbt.not_valid"));
-                                    }
-                                    return false;
-                                }
-
-                                default -> {
-                                    p.sendMessage(messageConfig.getMessage("command.wrong_command"));
-                                    return true;
-                                }
-                            }
-                        }
-
-                        case "삭제", "remove" -> {
-                            if (args.length != 4) {
-                                p.sendMessage(messageConfig.getMessage("command.wrong_command"));
-                                return true;
-                            }
-
-                            try {
-                                p.getInventory().setItemInMainHand(NBT.removeTag(item, args[3]));
-                            } catch (Exception e) {
-                                p.sendMessage(messageConfig.getMessage("command.nbt.not_valid"));
-                            }
-                            return false;
-                        }
-                    }
-                }
-
                 default -> {
                     p.sendMessage(messageConfig.getMessage("command.wrong_command"));
                     return true;
@@ -724,6 +527,6 @@ public class ItemEditorCommand implements CommandExecutor {
     }
 
     private void sendHelp(CommandSender sender) {
-        new Config("message", ItemEditorMain.getPlugin()).getStringList("command.help").forEach(sender::sendMessage);
+        messageConfig.getConfig().getStringList("command.help").forEach(line -> sender.sendMessage(ChatColor.translateAlternateColorCodes('&', line)));
     }
 }
