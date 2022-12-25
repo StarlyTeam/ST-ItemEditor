@@ -107,6 +107,7 @@ command:
       # {list} - 목록
       list:
         - "&e&l[&f아이템 인챈트 목록&e&l]"
+        - "{list}"
 
     # 추가
     add:

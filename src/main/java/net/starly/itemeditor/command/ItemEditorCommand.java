@@ -1,5 +1,6 @@
 package net.starly.itemeditor.command;
 
+import net.starly.core.data.MessageConfig;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -134,7 +135,7 @@ public class ItemEditorCommand implements CommandExecutor {
 
                         p.sendMessage(messageConfig.getMessage("command.type.success", Map.of("{type}", material.name())));
                     } catch (Exception e) {
-                        p.sendMessage(messageConfig.getMessage("command.type.fail"), args[1].toUpperCase());
+                        p.sendMessage(messageConfig.getMessage("command.type.fail", Map.of("{type}", args[1].toUpperCase())));
                     }
                 }
 
@@ -157,7 +158,7 @@ public class ItemEditorCommand implements CommandExecutor {
                             }
 
                             if (args.length == 2) {
-                                messageConfig.getMessages("command.lore.view.list", Map.of("{list}", String.join(messageConfig.getConfig().getString("command.lore.view.delimiter"),
+                                new MessageConfig(messageConfig.getConfig()).getMessages("command.lore.view.list", Map.of("{list}", String.join(messageConfig.getConfig().getString("command.lore.view.delimiter"),
                                         item.getItemMeta().getLore()))).forEach(p::sendMessage);
                             } else if (args.length == 3) {
                                 int index;
@@ -174,7 +175,7 @@ public class ItemEditorCommand implements CommandExecutor {
                                     return true;
                                 }
 
-                                messageConfig.getMessages("command.lore.view.list", Map.of("{list}", item.getItemMeta().getLore().get(index))).forEach(p::sendMessage);
+                                new MessageConfig(messageConfig.getConfig()).getMessages("command.lore.view.list", Map.of("{list}", item.getItemMeta().getLore().get(index))).forEach(p::sendMessage);
                                 return true;
                             } else {
                                 p.sendMessage(messageConfig.getMessage("command.wrong_command"));
@@ -310,12 +311,21 @@ public class ItemEditorCommand implements CommandExecutor {
                             }
 
                             if (args.length == 2) {
-                                messageConfig.getMessages("command.enchant.view.list", Map.of("{list}", String.join(messageConfig.getConfig().getString("command.enchant.delimiter"),
-                                        item.getItemMeta().getEnchants().entrySet().stream().map(entry -> entry.getKey().getKey().getKey() + " " + entry.getValue()).collect(Collectors.toList())))).forEach(p::sendMessage);
+                                if (item.getItemMeta().getEnchants().size() == 0) new MessageConfig(messageConfig.getConfig()).getMessages("command.enchant.view.list", Map.of("{list}", "없음")).forEach(p::sendMessage);
+                                else new MessageConfig(messageConfig.getConfig()).getMessages("command.enchant.view.list",
+                                        Map.of("{list}", item
+                                                .getItemMeta()
+                                                .getEnchants()
+                                                .keySet()
+                                                .stream()
+                                                .map(s -> "&6" + s.getKey().getKey() + " &7: &f" + item.getItemMeta().getEnchantLevel(s))
+                                                .collect(Collectors.joining("\n"))))
+                                        .forEach(p::sendMessage);
                             } else if (args.length == 3) {
-                                Enchantment enchantment = Enchantment.getByKey(NamespacedKey.minecraft(args[2]));
-
-                                if (enchantment == null) {
+                                Enchantment enchantment;
+                                try {
+                                    enchantment = Enchantment.getByKey(NamespacedKey.minecraft(args[2]));
+                                } catch (Exception e) {
                                     p.sendMessage(messageConfig.getMessage("command.wrong_command"));
                                     return true;
                                 }
@@ -325,7 +335,7 @@ public class ItemEditorCommand implements CommandExecutor {
                                     return true;
                                 }
 
-                                messageConfig.getMessages("command.enchant.view.list", Map.of("{list}", enchantment.getKey().getKey() + " " + item.getItemMeta().getEnchants().get(enchantment))).forEach(p::sendMessage);
+                                new MessageConfig(messageConfig.getConfig()).getMessages("command.enchant.view.list", Map.of("{list}", "&6" + enchantment.getKey().getKey() + " &7: &f" + item.getItemMeta().getEnchants().get(enchantment))).forEach(p::sendMessage);
                                 return true;
                             } else {
                                 p.sendMessage(messageConfig.getMessage("command.wrong_command"));
@@ -442,8 +452,8 @@ public class ItemEditorCommand implements CommandExecutor {
                                 return true;
                             }
 
-                            messageConfig.getMessages("command.flag.view.list", Map.of("{list}", String.join(messageConfig.getConfig().getString("command.flag.view.delimiter"),
-                                    item.getItemMeta().getItemFlags().stream().map(ItemFlag::name).collect(Collectors.toList())))).forEach(p::sendMessage);
+                            new MessageConfig(messageConfig.getConfig()).getMessages("command.flag.view.list", Map.of("{list}", String.join(messageConfig.getConfig().getString("command.flag.view.delimiter"),
+                                    item.getItemMeta().getItemFlags().stream().map(s -> "&6" + s.name()).collect(Collectors.toList())))).forEach(p::sendMessage);
                         }
 
                         case "추가", "add" -> {
