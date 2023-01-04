@@ -19,8 +19,6 @@ public class ItemEditorMain extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        Metrics metrics = new Metrics(this, 17173);
-
         if (Bukkit.getPluginManager().getPlugin("ST-Core") == null) {
             log.warning("[" + plugin.getName() + "] ST-Core 플러그인이 적용되지 않았습니다! 플러그인을 비활성화합니다.");
             log.warning("[" + plugin.getName() + "] 다운로드 링크 : &fhttps://discord.gg/TF8jqSJjCG");
@@ -30,6 +28,10 @@ public class ItemEditorMain extends JavaPlugin {
 
         plugin = this;
 
+        new Metrics(this, 17173);
+
+
+        // CONFIG
         config = new Config("config", plugin);
         config.loadDefaultPluginConfig();
 
@@ -37,6 +39,7 @@ public class ItemEditorMain extends JavaPlugin {
         msgConfig.loadDefaultPluginConfig();
         messageConfig = new MessageConfig(msgConfig, "prefix");
 
+        // COMMAND
         Bukkit.getPluginCommand("itemeditor").setExecutor(new ItemEditorCommand());
         Bukkit.getPluginCommand("itemeditor").setTabCompleter(new ItemEditorTabComplete());
     }
