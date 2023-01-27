@@ -2,9 +2,8 @@ package net.starly.itemeditor;
 
 import net.starly.core.bstats.Metrics;
 import net.starly.core.data.Config;
-import net.starly.core.data.MessageConfig;
-import net.starly.itemeditor.command.ItemEditorCommand;
-import net.starly.itemeditor.command.ItemEditorTabComplete;
+import net.starly.itemeditor.command.ItemEditorCmd;
+import net.starly.itemeditor.command.tabcomplete.ItemEditorTab;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -13,7 +12,7 @@ import java.util.logging.Logger;
 public class ItemEditorMain extends JavaPlugin {
     private static final Logger log = Bukkit.getLogger();
     public static Config config;
-    public static MessageConfig messageConfig;
+    public static Config msgConfig;
 
     private static JavaPlugin plugin;
 
@@ -33,15 +32,15 @@ public class ItemEditorMain extends JavaPlugin {
 
         // CONFIG
         config = new Config("config", plugin);
-        config.loadDefaultPluginConfig();
+        config.loadDefaultConfig();
 
-        Config msgConfig = new Config("message", plugin);
-        msgConfig.loadDefaultPluginConfig();
-        messageConfig = new MessageConfig(msgConfig, "prefix");
+        msgConfig = new Config("message", plugin);
+        msgConfig.loadDefaultConfig();
+        msgConfig.setPrefix("prefix");
 
         // COMMAND
-        Bukkit.getPluginCommand("itemeditor").setExecutor(new ItemEditorCommand());
-        Bukkit.getPluginCommand("itemeditor").setTabCompleter(new ItemEditorTabComplete());
+        Bukkit.getPluginCommand("itemeditor").setExecutor(new ItemEditorCmd());
+        Bukkit.getPluginCommand("itemeditor").setTabCompleter(new ItemEditorTab());
     }
 
     public static JavaPlugin getPlugin() {
