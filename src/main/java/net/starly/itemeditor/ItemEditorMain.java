@@ -11,7 +11,6 @@ import java.util.logging.Logger;
 
 public class ItemEditorMain extends JavaPlugin {
     private static final Logger log = Bukkit.getLogger();
-    public static Config config;
     public static Config msgConfig;
 
     private static JavaPlugin plugin;
@@ -31,9 +30,6 @@ public class ItemEditorMain extends JavaPlugin {
 
 
         // CONFIG
-        config = new Config("config", plugin);
-        config.loadDefaultConfig();
-
         msgConfig = new Config("message", plugin);
         msgConfig.loadDefaultConfig();
         msgConfig.setPrefix("prefix");

@@ -18,7 +18,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import static net.starly.itemeditor.ItemEditorMain.config;
 import static net.starly.itemeditor.ItemEditorMain.msgConfig;
 
 @SuppressWarnings("all")
@@ -31,23 +30,17 @@ public class ItemEditorCmd implements CommandExecutor {
         }
         Player player = (Player) sender;
 
-        if (!player.hasPermission("starly.itemeditor.use")) {
-            player.sendMessage(msgConfig.getMessage("command.no_permission"));
-            return true;
-        }
-
         if (args.length == 0) {
             sendHelp(player);
             return true;
         }
 
         if (List.of("리로드", "reload").contains(args[0].toLowerCase())) {
-            if (!player.hasPermission("starly.itemeditor." + config.getString("permission.command.reload"))) {
+            if (!player.hasPermission("starly.itemeditor.reload")) {
                 player.sendMessage(msgConfig.getMessage("command.no_permission"));
                 return true;
             }
 
-            config.reloadConfig();
             msgConfig.reloadConfig();
 
             player.sendMessage(msgConfig.getMessage("command.reload"));
@@ -67,7 +60,7 @@ public class ItemEditorCmd implements CommandExecutor {
                 case "이름":
                 case "name":
                 case "displayname": {
-                    if (!player.hasPermission("starly.itemeditor." + config.getString("permission.command.name"))) {
+                    if (!player.hasPermission("starly.itemeditor.command.name")) {
                         player.sendMessage(msgConfig.getMessage("command.no_permission"));
                         return true;
                     }
@@ -94,7 +87,7 @@ public class ItemEditorCmd implements CommandExecutor {
                 case "커스텀모델데이터":
                 case "cmd":
                 case "cid": {
-                    if (!player.hasPermission("starly.itemeditor." + config.getString("permission.command.custom_model_data"))) {
+                    if (!player.hasPermission("starly.itemeditor.command.custommodeldata")) {
                         player.sendMessage(msgConfig.getMessage("command.no_permission"));
                         return true;
                     }
@@ -123,7 +116,7 @@ public class ItemEditorCmd implements CommandExecutor {
 
                 case "타입":
                 case "type": {
-                    if (!player.hasPermission("starly.itemeditor." + config.getString("permission.command.type"))) {
+                    if (!player.hasPermission("starly.itemeditor.command.type")) {
                         player.sendMessage(msgConfig.getMessage("command.no_permission"));
                         return true;
                     }
@@ -148,7 +141,7 @@ public class ItemEditorCmd implements CommandExecutor {
 
                 case "로어":
                 case "lore": {
-                    if (!player.hasPermission("starly.itemeditor." + config.getString("permission.command.lore"))) {
+                    if (!player.hasPermission("starly.itemeditor.command.lore")) {
                         player.sendMessage(msgConfig.getMessage("command.no_permission"));
                         return true;
                     }
@@ -304,7 +297,7 @@ public class ItemEditorCmd implements CommandExecutor {
 
                 case "인챈트":
                 case "enchant": {
-                    if (!player.hasPermission("starly.itemeditor." + config.getString("permission.command.enchant"))) {
+                    if (!player.hasPermission("starly.itemeditor.command.enchant")) {
                         player.sendMessage(msgConfig.getMessage("command.no_permission"));
                         return true;
                     }
@@ -446,7 +439,7 @@ public class ItemEditorCmd implements CommandExecutor {
 
                 case "플래그":
                 case "flag": {
-                    if (!player.hasPermission("starly.itemeditor." + config.getString("permission.command.flag"))) {
+                    if (!player.hasPermission("starly.itemeditor.command.flag")) {
                         player.sendMessage(msgConfig.getMessage("command.no_permission"));
                         return true;
                     }
@@ -555,6 +548,11 @@ public class ItemEditorCmd implements CommandExecutor {
     }
 
     private void sendHelp(CommandSender sender) {
-        msgConfig.getConfig().getStringList("command.help").forEach(line -> sender.sendMessage(ChatColor.translateAlternateColorCodes('&', line)));
+        if (!sender.hasPermission("starly.itemeditor.help")) {
+            sender.sendMessage(msgConfig.getMessage("command.no_permission"));
+            return;
+        }
+
+        msgConfig.getStringList("command.help").forEach(line -> sender.sendMessage(ChatColor.translateAlternateColorCodes('&', line)));
     }
 }
