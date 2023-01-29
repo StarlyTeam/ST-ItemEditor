@@ -82,6 +82,7 @@ public class ItemEditorCmd implements CommandExecutor {
                     player.getInventory().setItemInMainHand(item);
 
                     player.sendMessage(msgConfig.getMessage("command.name", Map.of("{name}", name)));
+                    return true;
                 }
 
                 case "커스텀모델데이터":
@@ -112,6 +113,7 @@ public class ItemEditorCmd implements CommandExecutor {
                     player.getInventory().setItemInMainHand(item);
 
                     player.sendMessage(msgConfig.getMessage("command.custom_model_data", Map.of("{custom_model_data}", String.valueOf(cid))));
+                    return true;
                 }
 
                 case "타입":
@@ -134,8 +136,10 @@ public class ItemEditorCmd implements CommandExecutor {
                         player.getInventory().setItemInMainHand(newItem);
 
                         player.sendMessage(msgConfig.getMessage("command.type.success", Map.of("{type}", material.name())));
+                        return true;
                     } catch (Exception e) {
                         player.sendMessage(msgConfig.getMessage("command.type.fail", Map.of("{type}", args[1].toUpperCase())));
+                        return true;
                     }
                 }
 
