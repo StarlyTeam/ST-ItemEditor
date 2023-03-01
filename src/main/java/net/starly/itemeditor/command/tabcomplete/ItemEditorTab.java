@@ -65,9 +65,9 @@ public class ItemEditorTab implements TabCompleter {
                     return Arrays.asList(Arrays.stream(ItemFlag.values()).map(Enum::name).toArray(String[]::new));
                 }
             } else if (Arrays.asList("태그", "nbt").contains(args[0].toLowerCase())) {
-                if (Arrays.asList("추가", "삭제").contains(args[1].toLowerCase())) {
+                if (Arrays.asList("설정", "삭제").contains(args[1].toLowerCase())) {
                     return Collections.singletonList("<키>");
-                } else if (Arrays.asList("add", "remove").contains(args[1].toLowerCase())) {
+                } else if (Arrays.asList("set", "remove").contains(args[1].toLowerCase())) {
                     return Collections.singletonList("<Key>");
                 }
             }
@@ -77,9 +77,9 @@ public class ItemEditorTab implements TabCompleter {
                     return Arrays.asList("1", "2", "3", "4", "5");
                 }
             } else if (Arrays.asList("태그", "nbt").contains(args[0].toLowerCase())) {
-                if (Arrays.asList("추가", "삭제").contains(args[1].toLowerCase())) {
+                if (Arrays.asList("설정", "삭제").contains(args[1].toLowerCase())) {
                     return Collections.singletonList("<값>");
-                } else if (Arrays.asList("add", "remove").contains(args[1].toLowerCase())) {
+                } else if (Arrays.asList("set", "remove").contains(args[1].toLowerCase())) {
                     return Collections.singletonList("<Value>");
                 }
             }

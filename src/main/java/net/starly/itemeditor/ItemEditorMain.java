@@ -1,15 +1,12 @@
 package net.starly.itemeditor;
 
 import net.starly.core.bstats.Metrics;
-import net.starly.core.data.Config;
 import net.starly.itemeditor.command.ItemEditorCmd;
 import net.starly.itemeditor.command.tabcomplete.ItemEditorTab;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class ItemEditorMain extends JavaPlugin {
-    public static Config msgConfig;
-
     private static JavaPlugin plugin;
 
     @Override
@@ -23,12 +20,6 @@ public class ItemEditorMain extends JavaPlugin {
 
         plugin = this;
         new Metrics(this, 17173);
-
-
-        // CONFIG
-        msgConfig = new Config("message", plugin);
-        msgConfig.loadDefaultConfig();
-        msgConfig.setPrefix("prefix");
 
         // COMMAND
         Bukkit.getPluginCommand("itemeditor").setExecutor(new ItemEditorCmd());

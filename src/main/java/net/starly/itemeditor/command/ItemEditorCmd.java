@@ -1,32 +1,22 @@
 package net.starly.itemeditor.command;
 
-import net.starly.core.jb.version.nms.tank.NmsItemStackUtil;
-import net.starly.core.jb.version.nms.wrapper.ItemStackWrapper;
-import net.starly.core.jb.version.nms.wrapper.NBTTagCompoundWrapper;
+import net.starly.core.data.Config;
 import net.starly.itemeditor.command.handlers.*;
-import net.starly.itemeditor.util.ItemEditUtil;
-import org.bukkit.ChatColor;
+import net.starly.itemeditor.context.MessageContent;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 
-import java.lang.reflect.Method;
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.stream.Collectors;
-
-import static net.starly.itemeditor.ItemEditorMain.msgConfig;
 
 @SuppressWarnings("all")
 public class ItemEditorCmd implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+        Config msgConfig = MessageContent.getInstance().getConfig();
         if (!(sender instanceof Player)) {
             sender.sendMessage(msgConfig.getMessage("errorMessages.onlyPlayer"));
             return true;
@@ -103,6 +93,7 @@ public class ItemEditorCmd implements CommandExecutor {
     }
 
     private void printHelpMessage(CommandSender sender) {
+        Config msgConfig = MessageContent.getInstance().getConfig();
         if (!sender.hasPermission("starly.itemeditor.help")) {
             sender.sendMessage(msgConfig.getMessage("errorMessages.noPermission"));
             return;

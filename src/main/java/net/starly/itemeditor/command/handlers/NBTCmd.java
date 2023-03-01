@@ -1,6 +1,8 @@
 package net.starly.itemeditor.command.handlers;
 
+import net.starly.core.data.Config;
 import net.starly.itemeditor.command.SubCommandImpl;
+import net.starly.itemeditor.context.MessageContent;
 import net.starly.itemeditor.util.ClassUtil;
 import net.starly.itemeditor.util.ItemEditUtil;
 import org.bukkit.command.Command;
@@ -10,8 +12,6 @@ import org.bukkit.inventory.ItemStack;
 import java.lang.reflect.Method;
 import java.util.Set;
 import java.util.stream.Collectors;
-
-import static net.starly.itemeditor.ItemEditorMain.msgConfig;
 
 public class NBTCmd implements SubCommandImpl {
     private static NBTCmd instance;
@@ -31,6 +31,7 @@ public class NBTCmd implements SubCommandImpl {
     @Override
     public boolean executeCommand(Player player, Command cmd, String label, String[] args) {
         ItemStack itemStack = player.getInventory().getItemInMainHand();
+        Config msgConfig = MessageContent.getInstance().getConfig();
         if (!player.hasPermission("starly.itemeditor.command.nbt")) {
             player.sendMessage(msgConfig.getMessage("errorMessages.noPermission"));
             return true;

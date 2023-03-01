@@ -1,6 +1,8 @@
 package net.starly.itemeditor.command.handlers;
 
+import net.starly.core.data.Config;
 import net.starly.itemeditor.command.SubCommandImpl;
+import net.starly.itemeditor.context.MessageContent;
 import net.starly.itemeditor.util.ItemEditUtil;
 import org.bukkit.NamespacedKey;
 import org.bukkit.command.Command;
@@ -9,8 +11,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.stream.Collectors;
-
-import static net.starly.itemeditor.ItemEditorMain.msgConfig;
 
 public class EnchantmentCmd implements SubCommandImpl {
     private static EnchantmentCmd instance;
@@ -31,6 +31,7 @@ public class EnchantmentCmd implements SubCommandImpl {
     @Override
     public boolean executeCommand(Player player, Command cmd, String label, String[] args) {
         ItemStack itemStack = player.getInventory().getItemInMainHand();
+        Config msgConfig = MessageContent.getInstance().getConfig();
         if (!player.hasPermission("starly.itemeditor.command.enchant")) {
             player.sendMessage(msgConfig.getMessage("errorMessages.noPermission"));
             return true;
