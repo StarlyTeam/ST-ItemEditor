@@ -48,18 +48,20 @@ public class NBTCmd implements SubCommandImpl {
                 }
 
                 try {
-                    Class<?> craftStackClass = ClassUtil.getInstance().getCraftStackClass();
+                    Class<?> craftStackClass = ClassUtil.getInstance().getCraftStackClass(),
+                            nbtTagCompoundClass = ClassUtil.getInstance().getNbtTagCompoundClass();
                     Method asNMSCopy = ClassUtil.getInstance().getAsNMSCopy(), getTag = ClassUtil.getInstance().getGetTag(), getString = ClassUtil.getInstance().getGetString(), getKeys = ClassUtil.getInstance().getGetKeys();
-
                     Object nmsStack = asNMSCopy.invoke(craftStackClass, itemStack), nbtTagCompound = getTag.invoke(nmsStack);
+                    if (nbtTagCompound == null) nbtTagCompound = nbtTagCompoundClass.newInstance();
 
                     Set<String> keys = (Set<String>) getKeys.invoke(nbtTagCompound);
                     if (keys.isEmpty()) {
                         msgConfig.getMessages("messages.nbtList.list").forEach(line -> player.sendMessage(line.replace("{list}", "없음")));
                     } else {
+                        Object finalNbtTagCompound = nbtTagCompound;
                         String list = keys.stream().map(key -> {
                             try {
-                                return msgConfig.getString("messages.nbtList.item").replace("{key}", key).replace("{value}", (String) getString.invoke(nbtTagCompound, key)).replace("&", "§");
+                                return msgConfig.getString("messages.nbtList.item").replace("{key}", key).replace("{value}", (String) getString.invoke(finalNbtTagCompound, key)).replace("&", "§");
                             } catch (Exception ex) {
                                 ex.printStackTrace();
                                 return null;

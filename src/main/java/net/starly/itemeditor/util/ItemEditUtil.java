@@ -117,7 +117,8 @@ public class ItemEditUtil {
 
     public ItemStack setNBTTag(ItemStack itemStack, String key, String value) {
         try {
-            Class<?> craftStackClass = ClassUtil.getInstance().getCraftStackClass();
+            Class<?> craftStackClass = ClassUtil.getInstance().getCraftStackClass(),
+                    nbtTagCompoundClass = ClassUtil.getInstance().getNbtTagCompoundClass();
             Method asNMSCopy = ClassUtil.getInstance().getAsNMSCopy(),
                     asBukkitCopy = ClassUtil.getInstance().getAsBukkitCopy(),
                     getTag = ClassUtil.getInstance().getGetTag(),
@@ -126,6 +127,7 @@ public class ItemEditUtil {
 
             Object nmsStack = asNMSCopy.invoke(craftStackClass, itemStack),
                     nbtTagCompound = getTag.invoke(nmsStack);
+            if (nbtTagCompound == null) nbtTagCompound = nbtTagCompoundClass.newInstance();
 
             setString.invoke(nbtTagCompound, key, value);
             setTag.invoke(nmsStack, nbtTagCompound);
@@ -139,7 +141,8 @@ public class ItemEditUtil {
 
     public ItemStack removeNBTTag(ItemStack itemStack, String key) {
         try {
-            Class<?> craftStackClass = ClassUtil.getInstance().getCraftStackClass();
+            Class<?> craftStackClass = ClassUtil.getInstance().getCraftStackClass(),
+                    nbtTagCompoundClass = ClassUtil.getInstance().getNbtTagCompoundClass();
             Method asNMSCopy = ClassUtil.getInstance().getAsNMSCopy(),
                     asBukkitCopy = ClassUtil.getInstance().getAsBukkitCopy(),
                     getTag = ClassUtil.getInstance().getGetTag(),
@@ -148,6 +151,7 @@ public class ItemEditUtil {
 
             Object nmsStack = asNMSCopy.invoke(craftStackClass, itemStack),
                     nbtTagCompound = getTag.invoke(nmsStack);
+            if (nbtTagCompound == null) nbtTagCompound = nbtTagCompoundClass.newInstance();
 
             remove.invoke(nbtTagCompound, key);
             setTag.invoke(nmsStack, nbtTagCompound);
@@ -161,7 +165,8 @@ public class ItemEditUtil {
 
     public ItemStack clearNBTTag(ItemStack itemStack) {
         try {
-            Class<?> craftStackClass = ClassUtil.getInstance().getCraftStackClass();
+            Class<?> craftStackClass = ClassUtil.getInstance().getCraftStackClass(),
+                    nbtTagCompoundClass = ClassUtil.getInstance().getNbtTagCompoundClass();
             Method asNMSCopy = ClassUtil.getInstance().getAsNMSCopy(),
                     asBukkitCopy = ClassUtil.getInstance().getAsBukkitCopy(),
                     getTag = ClassUtil.getInstance().getGetTag(),
@@ -171,11 +176,13 @@ public class ItemEditUtil {
 
             Object nmsStack = asNMSCopy.invoke(craftStackClass, itemStack),
                     nbtTagCompound = getTag.invoke(nmsStack);
+            if (nbtTagCompound == null) nbtTagCompound = nbtTagCompoundClass.newInstance();
 
             Set<String> keys = (Set<String>) getKeys.invoke(nbtTagCompound);
+            Object finalNbtTagCompound = nbtTagCompound;
             keys.forEach(key -> {
                 try {
-                    remove.invoke(nbtTagCompound, key);
+                    remove.invoke(finalNbtTagCompound, key);
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
