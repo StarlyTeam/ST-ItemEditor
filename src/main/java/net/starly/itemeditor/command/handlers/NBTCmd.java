@@ -16,8 +16,7 @@ import static net.starly.itemeditor.ItemEditorMain.msgConfig;
 public class NBTCmd implements SubCommandImpl {
     private static NBTCmd instance;
 
-    private NBTCmd() {
-    }
+    private NBTCmd() {}
 
     public static NBTCmd getInstance() {
         if (instance == null) {

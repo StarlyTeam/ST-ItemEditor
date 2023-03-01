@@ -5,6 +5,7 @@ import net.starly.itemeditor.util.ItemEditUtil;
 import org.bukkit.command.Command;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import static net.starly.itemeditor.ItemEditorMain.msgConfig;
 
@@ -31,6 +32,13 @@ public class CidCmd implements SubCommandImpl {
             return true;
         } else if (args.length == 1) {
             player.sendMessage(msgConfig.getMessage("errorMessages.noCustomModelData"));
+            return true;
+        }
+
+        try {
+            ItemMeta.class.getDeclaredMethod("setCustomModelData", Integer.class);
+        } catch (NoSuchMethodException ex) {
+            player.sendMessage(msgConfig.getMessage("errorMessages.cannotUseCustomModelData"));
             return true;
         }
 
