@@ -4,6 +4,7 @@ import net.starly.core.data.Config;
 import net.starly.itemeditor.command.SubCommandImpl;
 import net.starly.itemeditor.context.MessageContent;
 import net.starly.itemeditor.util.ItemEditUtil;
+import org.bukkit.ChatColor;
 import org.bukkit.NamespacedKey;
 import org.bukkit.command.Command;
 import org.bukkit.enchantments.Enchantment;
@@ -56,11 +57,12 @@ public class EnchantmentCmd implements SubCommandImpl {
                             .getEnchants()
                             .keySet()
                             .stream()
-                            .map(s -> msgConfig
-                                    .getString("messages.flagList.item")
-                                    .replace("{enchant}", s.getName())
-                                    .replace("{level}", itemStack.getEnchantmentLevel(s) + "")
-                                    .replace("&", "§"))
+                            .map(s -> ChatColor
+                                    .translateAlternateColorCodes('&',
+                                            msgConfig
+                                                    .getString("messages.flagList.item")
+                                                    .replace("{enchant}", s.getName())
+                                                    .replace("{level}", itemStack.getEnchantmentLevel(s) + "")))
                             .collect(Collectors.joining(msgConfig.getString("messages.flagList.delimiter")));
                     msgConfig.getMessages("messages.enchantmentList.list").forEach(line -> player.sendMessage(line.replace("{list}", list)));
                 }
