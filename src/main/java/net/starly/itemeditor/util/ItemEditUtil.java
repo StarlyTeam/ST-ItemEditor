@@ -13,12 +13,8 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
-
-import static net.starly.itemeditor.ItemEditorMain.msgConfig;
 
 public class ItemEditUtil {
     private static ItemEditUtil instance;

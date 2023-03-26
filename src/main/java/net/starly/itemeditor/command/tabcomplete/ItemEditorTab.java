@@ -42,15 +42,7 @@ public class ItemEditorTab implements TabCompleter {
                 if (Arrays.asList("보기", "view", "수정", "edit", "삭제", "remove").contains(args[1].toLowerCase())) tab.addAll(Arrays.asList("1", "2", "3", "4", "5"));
             } else if (Arrays.asList("인챈트", "enchantment").contains(args[0].toLowerCase())) {
                 if (Arrays.asList("추가", "add", "삭제", "remove").contains(args[1].toLowerCase())) {
-
-
-                    tab.addAll(Arrays.asList(Arrays.stream(Enchantment.values()).map(s -> {
-                        try {
-                            return s.getKey().getKey();
-                        } catch (Exception ignored) {
-                            return s.getName().toLowerCase();
-                        }
-                    }).toArray(String[]::new)));
+                    tab.addAll(Arrays.asList(Arrays.stream(Enchantment.values()).map(s -> s.getName().toLowerCase()).toArray(String[]::new)));
                 }
             } else if (Arrays.asList("플래그", "flag").contains(args[0].toLowerCase())) {
                 if (Arrays.asList("추가", "add", "삭제", "remove").contains(args[1].toLowerCase())) {

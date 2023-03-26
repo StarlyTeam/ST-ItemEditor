@@ -48,11 +48,20 @@ public class EnchantmentCmd implements SubCommandImpl {
                     return true;
                 }
 
-                System.out.println(itemStack.getItemMeta().getEnchants());
                 if (itemStack.getItemMeta().getEnchants().isEmpty()) {
                     msgConfig.getMessages("messages.enchantmentList.list").forEach(line -> player.sendMessage(line.replace("{list}", "없음")));
                 } else {
-                    String list = itemStack.getItemMeta().getEnchants().keySet().stream().map(s -> msgConfig.getString("messages.flagList.item").replace("{enchant}", s.getKey().getKey()).replace("{level}", itemStack.getEnchantmentLevel(s) + "").replace("&", "§")).collect(Collectors.joining(msgConfig.getString("messages.flagList.delimiter")));
+                    String list = itemStack
+                            .getItemMeta()
+                            .getEnchants()
+                            .keySet()
+                            .stream()
+                            .map(s -> msgConfig
+                                    .getString("messages.flagList.item")
+                                    .replace("{enchant}", s.getName())
+                                    .replace("{level}", itemStack.getEnchantmentLevel(s) + "")
+                                    .replace("&", "§"))
+                            .collect(Collectors.joining(msgConfig.getString("messages.flagList.delimiter")));
                     msgConfig.getMessages("messages.enchantmentList.list").forEach(line -> player.sendMessage(line.replace("{list}", list)));
                 }
                 return true;
