@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="bcf9cb07-9755-407b-8347-dc6555a3f569" name="Changes" comment="fix: Message Bug">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/discord.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ST-ItemEditor" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ST-ItemEditor" type="f1a62948:ProjectNode" />
+                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2JIpAhbYgm26668RgHyArZhw4aX" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/개발/TEAM/Starly/Projects/Plugins/Free/ST-Warn&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\개발\TEAM\Starly\Projects\Plugins\Free\ST-ItemEditor\build\libs" />
+      <recent name="D:\개발\TEAM\Starly\Plugins\Free\ST-ItemEditor\src\main\java\net\starly\itemeditor\util" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="ST-ItemEditor [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="jar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>false</ForceTestExec>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.ST-ItemEditor [jar]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bcf9cb07-9755-407b-8347-dc6555a3f569" name="Changes" comment="" />
+      <created>1671775309850</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1671775309850</updated>
+      <workItem from="1671775310880" duration="7000" />
+      <workItem from="1671775329069" duration="757000" />
+      <workItem from="1671776096480" duration="8903000" />
+      <workItem from="1671785153211" duration="783000" />
+      <workItem from="1671785950095" duration="6945000" />
+      <workItem from="1671872455390" duration="165000" />
+      <workItem from="1671881510883" duration="2831000" />
+      <workItem from="1671884690003" duration="1135000" />
+      <workItem from="1671964858564" duration="2002000" />
+      <workItem from="1671966886426" duration="597000" />
+      <workItem from="1671968819385" duration="336000" />
+      <workItem from="1671970044430" duration="6000" />
+      <workItem from="1672033718469" duration="18000" />
+      <workItem from="1672036517317" duration="2000" />
+      <workItem from="1672142468749" duration="27000" />
+      <workItem from="1672295103312" duration="10000" />
+      <workItem from="1672400999373" duration="38000" />
+      <workItem from="1672401053293" duration="2000" />
+      <workItem from="1672401063328" duration="9000" />
+      <workItem from="1672404405393" duration="37000" />
+      <workItem from="1672836544110" duration="102000" />
+      <workItem from="1674098076112" duration="126000" />
+      <workItem from="1674798948730" duration="2966000" />
+      <workItem from="1674976624256" duration="170000" />
+      <workItem from="1674985761477" duration="2000" />
+      <workItem from="1675780156707" duration="17000" />
+      <workItem from="1675814620711" duration="32000" />
+      <workItem from="1677573502606" duration="14517000" />
+      <workItem from="1677629448275" duration="17954000" />
+      <workItem from="1677662415097" duration="2827000" />
+      <workItem from="1677671033543" duration="2455000" />
+      <workItem from="1677760183518" duration="100000" />
+      <workItem from="1677840594467" duration="877000" />
+      <workItem from="1677989603337" duration="14000" />
+      <workItem from="1677990893663" duration="10000" />
+      <workItem from="1677990968953" duration="629000" />
+      <workItem from="1679836012793" duration="405000" />
+      <workItem from="1679837895987" duration="305000" />
+      <workItem from="1679872494165" duration="1353000" />
+      <workItem from="1680015676529" duration="5000" />
+      <workItem from="1680015683443" duration="56000" />
+      <workItem from="1680091984683" duration="10000" />
+      <workItem from="1680092050906" duration="303000" />
+    </task>
+    <task id="LOCAL-00001" summary="Initial Commit">
+      <created>1671872596464</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1671872596464</updated>
+    </task>
+    <task id="LOCAL-00002" summary="fix: bugs">
+      <created>1671928819728</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1671928819728</updated>
+    </task>
+    <task id="LOCAL-00003" summary="fix: bugs">
+      <created>1671967483253</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1671967483253</updated>
+    </task>
+    <task id="LOCAL-00004" summary="modify: version">
+      <created>1672404436424</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1672404436424</updated>
+    </task>
+    <task id="LOCAL-00005" summary="modify: metrics">
+      <created>1672836597410</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1672836597410</updated>
+    </task>
+    <task id="LOCAL-00006" summary="modify: `api-version`&#10;modify: `version`&#10;fix: Bugs">
+      <created>1674801692979</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1674801692979</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fix: Bugs">
+      <created>1674802337569</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1674802337569</updated>
+    </task>
+    <task id="LOCAL-00008" summary="fix: Bugs">
+      <created>1674976788708</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1674976788708</updated>
+    </task>
+    <task id="LOCAL-00009" summary="modify: misc">
+      <created>1675780169357</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1675780169357</updated>
+    </task>
+    <task id="LOCAL-00010" summary="feat: System Renewal">
+      <created>1677650781985</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1677650781986</updated>
+    </task>
+    <task id="LOCAL-00011" summary="feat: Version Compatible">
+      <created>1677652504438</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1677652504438</updated>
+    </task>
+    <task id="LOCAL-00012" summary="feat: help message">
+      <created>1677664836408</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1677664836408</updated>
+    </task>
+    <task id="LOCAL-00013" summary="fix: Bugs">
+      <created>1677671283323</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1677671283323</updated>
+    </task>
+    <task id="LOCAL-00014" summary="feat: System Update">
+      <created>1677675531543</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1677675531543</updated>
+    </task>
+    <task id="LOCAL-00015" summary="modify: TabCompleter">
+      <created>1677841361618</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1677841361618</updated>
+    </task>
+    <task id="LOCAL-00016" summary="fix: Bugs">
+      <created>1679838195528</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1679838195528</updated>
+    </task>
+    <task id="LOCAL-00017" summary="fix: Bugs">
+      <created>1679873450438</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1679873450438</updated>
+    </task>
+    <task id="LOCAL-00018" summary="fix: Message Bug">
+      <created>1679873524634</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1679873524634</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Initial Commit" />
+    <MESSAGE value="fix: bugs" />
+    <MESSAGE value="modify: version" />
+    <MESSAGE value="modify: metrics" />
+    <MESSAGE value="modify: `api-version`&#10;fix: Bugs" />
+    <MESSAGE value="modify: `api-version`&#10;modify: `version`&#10;fix: Bugs" />
+    <MESSAGE value="modify: misc" />
+    <MESSAGE value="feat: System Renewal" />
+    <MESSAGE value="feat: Version Compatible" />
+    <MESSAGE value="feat: help message" />
+    <MESSAGE value="feat: System Update" />
+    <MESSAGE value="fix: TabCompleter" />
+    <MESSAGE value="modify: TabCompleter" />
+    <MESSAGE value="fix: Bugs" />
+    <MESSAGE value="fix: Message Bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: Message Bug" />
+  </component>
+</project>
