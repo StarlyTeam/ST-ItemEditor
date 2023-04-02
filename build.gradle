@@ -3,7 +3,7 @@ plugins {
 }
 
 group 'net.starly.itemeditor'
-version '1.2.3'
+version '1.2.4'
 
 repositories {
     mavenCentral()
@@ -21,7 +21,7 @@ dependencies {
     compileOnly "org.spigotmc:spigot-api:R0.1:1.16.5"
 
     // OTHER DEPENDENCIES
-    compileOnly "net.starly.core:ST-Core:1.6.7"
+    compileOnly "net.starly.core:ST-Core:1.6.12"
 }
 
 compileJava.options.encoding = 'UTF-8'
