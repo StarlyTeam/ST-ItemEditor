@@ -1,7 +1,7 @@
 package net.starly.itemeditor.command;
 
 import net.starly.core.data.Config;
-import net.starly.itemeditor.command.handlers.*;
+import net.starly.itemeditor.command.subcommand.*;
 import net.starly.itemeditor.context.MessageContent;
 import org.bukkit.Material;
 import org.bukkit.command.Command;

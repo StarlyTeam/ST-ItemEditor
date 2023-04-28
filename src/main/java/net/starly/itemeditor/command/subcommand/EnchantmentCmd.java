@@ -1,7 +1,7 @@
-package net.starly.itemeditor.command.handlers;
+package net.starly.itemeditor.command.subcommand;
 
 import net.starly.core.data.Config;
-import net.starly.itemeditor.command.SubCommandImpl;
+import net.starly.itemeditor.command.SubCommand;
 import net.starly.itemeditor.context.MessageContent;
 import net.starly.itemeditor.util.ItemEditUtil;
 import org.bukkit.ChatColor;
@@ -13,7 +13,7 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.stream.Collectors;
 
-public class EnchantmentCmd implements SubCommandImpl {
+public class EnchantmentCmd implements SubCommand {
     private static EnchantmentCmd instance;
 
     private EnchantmentCmd() {

@@ -1,7 +1,7 @@
-package net.starly.itemeditor.command.handlers;
+package net.starly.itemeditor.command.subcommand;
 
 import net.starly.core.data.Config;
-import net.starly.itemeditor.command.SubCommandImpl;
+import net.starly.itemeditor.command.SubCommand;
 import net.starly.itemeditor.context.MessageContent;
 import net.starly.itemeditor.util.ItemEditUtil;
 import org.bukkit.command.Command;
@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-public class CidCmd implements SubCommandImpl {
+public class CidCmd implements SubCommand {
     private static CidCmd instance;
 
     private CidCmd() {}

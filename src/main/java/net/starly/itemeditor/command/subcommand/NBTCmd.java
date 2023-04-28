@@ -1,7 +1,7 @@
-package net.starly.itemeditor.command.handlers;
+package net.starly.itemeditor.command.subcommand;
 
 import net.starly.core.data.Config;
-import net.starly.itemeditor.command.SubCommandImpl;
+import net.starly.itemeditor.command.SubCommand;
 import net.starly.itemeditor.context.MessageContent;
 import net.starly.itemeditor.util.ClassUtil;
 import net.starly.itemeditor.util.ItemEditUtil;
@@ -13,7 +13,7 @@ import java.lang.reflect.Method;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class NBTCmd implements SubCommandImpl {
+public class NBTCmd implements SubCommand {
     private static NBTCmd instance;
 
     private NBTCmd() {}

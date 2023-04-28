@@ -1,7 +1,7 @@
-package net.starly.itemeditor.command.handlers;
+package net.starly.itemeditor.command.subcommand;
 
 import net.starly.core.data.Config;
-import net.starly.itemeditor.command.SubCommandImpl;
+import net.starly.itemeditor.command.SubCommand;
 import net.starly.itemeditor.context.MessageContent;
 import net.starly.itemeditor.util.ItemEditUtil;
 import org.bukkit.Material;
@@ -9,7 +9,7 @@ import org.bukkit.command.Command;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-public class TypeCmd implements SubCommandImpl {
+public class TypeCmd implements SubCommand {
     private static TypeCmd instance;
 
     private TypeCmd() {}

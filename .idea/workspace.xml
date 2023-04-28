@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bcf9cb07-9755-407b-8347-dc6555a3f569" name="Changes" comment="fix: Bugs&#10;modify: message" />
+    <list default="true" id="bcf9cb07-9755-407b-8347-dc6555a3f569" name="Changes" comment="fix: Bugs" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -165,6 +165,7 @@
       <workItem from="1680091984683" duration="10000" />
       <workItem from="1680092050906" duration="303000" />
       <workItem from="1680399731698" duration="136000" />
+      <workItem from="1680411430700" duration="208000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1671872596464</created>
@@ -320,7 +321,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680399854909</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="fix: Bugs">
+      <created>1680411621412</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1680411621412</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -340,12 +348,12 @@
     <MESSAGE value="feat: System Update" />
     <MESSAGE value="fix: TabCompleter" />
     <MESSAGE value="modify: TabCompleter" />
-    <MESSAGE value="fix: Bugs" />
     <MESSAGE value="fix: Message Bug" />
     <MESSAGE value="project" />
     <MESSAGE value="modify: version&#10;modify: command" />
     <MESSAGE value="modify: version" />
     <MESSAGE value="fix: Bugs&#10;modify: message" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: Bugs&#10;modify: message" />
+    <MESSAGE value="fix: Bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: Bugs" />
   </component>
 </project>
