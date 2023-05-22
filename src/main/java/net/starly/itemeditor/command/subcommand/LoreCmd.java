@@ -62,7 +62,7 @@ public class LoreCmd implements SubCommand {
                     return true;
                 }
 
-                String lore = ChatColor.translateAlternateColorCodes('&', "&r&f" + String.join(" ", Arrays.copyOfRange(args, 2, args.length)));
+                String lore = ChatColor.translateAlternateColorCodes('&', "&r&f" + String.join(" ", Arrays.copyOfRange(args, 2, args.length)).replace("\\b", " "));
                 player.getInventory().setItemInMainHand(ItemEditUtil.getInstance().addLore(itemStack, lore));
 
                 player.sendMessage(msgConfig.getMessage("messages.loreAdded").replace("{lore}", lore).replace("{line}", (itemStack.getItemMeta().hasLore() ? itemStack.getItemMeta().getLore().size() : 1) + ""));
@@ -91,7 +91,7 @@ public class LoreCmd implements SubCommand {
                     player.sendMessage(msgConfig.getMessage("errorMessages.loreLineMustBeNumber"));
                     return true;
                 }
-                String lore = ChatColor.translateAlternateColorCodes('&', "&r&f" + String.join(" ", Arrays.copyOfRange(args, 3, args.length)));
+                String lore = ChatColor.translateAlternateColorCodes('&', "&r&f" + String.join(" ", Arrays.copyOfRange(args, 3, args.length)).replace("\\b", " "));
                 player.getInventory().setItemInMainHand(ItemEditUtil.getInstance().editLoreAt(itemStack, index, lore));
 
                 player.sendMessage(msgConfig.getMessage("messages.loreEdited").replace("{lore}", lore).replace("{line}", args[2]));

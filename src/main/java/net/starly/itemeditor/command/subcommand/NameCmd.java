@@ -4,6 +4,7 @@ import net.starly.core.data.Config;
 import net.starly.itemeditor.command.SubCommand;
 import net.starly.itemeditor.context.MessageContent;
 import net.starly.itemeditor.util.ItemEditUtil;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -38,7 +39,7 @@ public class NameCmd implements SubCommand {
             return true;
         }
 
-        String name = "§r" + Arrays.stream(Arrays.copyOfRange(args, 1, args.length)).map(s -> s.replace("&", "§")).collect(Collectors.joining(" "));
+        String name = "§r" + ChatColor.translateAlternateColorCodes('&', String.join(" ", Arrays.copyOfRange(args, 1, args.length)).replace("\\b", " "));
         player.getInventory().setItemInMainHand(ItemEditUtil.getInstance().setDisplayName(itemStack, name));
 
         player.sendMessage(msgConfig.getMessage("messages.nameChanged").replace("{name}", name));
