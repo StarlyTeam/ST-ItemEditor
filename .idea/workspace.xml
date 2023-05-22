@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bcf9cb07-9755-407b-8347-dc6555a3f569" name="Changes" comment="fix: Bugs" />
+    <list default="true" id="bcf9cb07-9755-407b-8347-dc6555a3f569" name="Changes" comment="modify: version">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -166,6 +168,8 @@
       <workItem from="1680092050906" duration="303000" />
       <workItem from="1680399731698" duration="136000" />
       <workItem from="1680411430700" duration="208000" />
+      <workItem from="1682685950843" duration="339000" />
+      <workItem from="1684751339201" duration="25000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1671872596464</created>
@@ -328,7 +332,28 @@
       <option name="project" value="LOCAL" />
       <updated>1680411621412</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="refactor: style code">
+      <created>1682686029742</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1682686029742</updated>
+    </task>
+    <task id="LOCAL-00025" summary="modify: version">
+      <created>1682686040134</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1682686040134</updated>
+    </task>
+    <task id="LOCAL-00026" summary="modify: version">
+      <created>1684751363199</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1684751363199</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -351,9 +376,10 @@
     <MESSAGE value="fix: Message Bug" />
     <MESSAGE value="project" />
     <MESSAGE value="modify: version&#10;modify: command" />
-    <MESSAGE value="modify: version" />
     <MESSAGE value="fix: Bugs&#10;modify: message" />
     <MESSAGE value="fix: Bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: Bugs" />
+    <MESSAGE value="refactor: style code" />
+    <MESSAGE value="modify: version" />
+    <option name="LAST_COMMIT_MESSAGE" value="modify: version" />
   </component>
 </project>
