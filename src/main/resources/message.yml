@@ -239,9 +239,6 @@ errorMessages:
   # 추가할 인챈트 레벨이 1보다 작은 경우
   enchantmentLevelMustBiggerThan1: "&c추가할 인챈트 레벨은 1보다 커야 합니다."
 
-  # 추가할 인챈트가 이미 존재하는 경우
-  enchantmentAlreadyExist: "&c아이템에 이미 존재하는 인챈트입니다."
-
   # 제거할 인챈트를 입력하지 않은 경우
   noEnchantmentToRemove: "&c제거할 인챈트를 입력해주세요."
 

@@ -7,6 +7,7 @@ import org.bukkit.command.TabCompleter;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.util.StringUtil;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,7 +17,7 @@ import java.util.List;
 public class ItemEditorTab implements TabCompleter {
 
     @Override
-    public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
+    public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String label, @NotNull String[] args) {
         List<String> tab = new ArrayList<>();
 
         if (args.length == 1) {
@@ -42,7 +43,7 @@ public class ItemEditorTab implements TabCompleter {
                 if (Arrays.asList("보기", "view", "수정", "edit", "삭제", "remove").contains(args[1].toLowerCase())) tab.addAll(Arrays.asList("1", "2", "3", "4", "5"));
             } else if (Arrays.asList("인챈트", "enchantment").contains(args[0].toLowerCase())) {
                 if (Arrays.asList("추가", "add", "삭제", "remove").contains(args[1].toLowerCase())) {
-                    tab.addAll(Arrays.asList(Arrays.stream(Enchantment.values()).map(s -> s.getName().toLowerCase()).toArray(String[]::new)));
+                    tab.addAll(Arrays.asList(Arrays.stream(Enchantment.values()).map(s -> s.getKey().getKey()).toArray(String[]::new)));
                 }
             } else if (Arrays.asList("플래그", "flag").contains(args[0].toLowerCase())) {
                 if (Arrays.asList("추가", "add", "삭제", "remove").contains(args[1].toLowerCase())) {

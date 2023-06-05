@@ -84,10 +84,6 @@ public class EnchantmentCmd implements SubCommand {
                     player.sendMessage(msgConfig.getMessage("errorMessages.enchantmentNotExist"));
                     return true;
                 }
-                if (itemStack.getItemMeta().hasEnchant(enchantment)) {
-                    player.sendMessage(msgConfig.getMessage("errorMessages.enchantmentAlreadyExist"));
-                    return true;
-                }
                 int level;
                 try {
                     level = Integer.parseInt(args[3]);
