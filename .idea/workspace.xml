@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bcf9cb07-9755-407b-8347-dc6555a3f569" name="Changes" comment="modify: version">
+    <list default="true" id="bcf9cb07-9755-407b-8347-dc6555a3f569" name="Changes" comment="project">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/starly/itemeditor/command/subcommand/EnchantmentCmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/starly/itemeditor/command/subcommand/EnchantmentCmd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/starly/itemeditor/command/tabcomplete/ItemEditorTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/starly/itemeditor/command/tabcomplete/ItemEditorTab.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/message.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/message.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,26 +65,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/개발/TEAM/Starly/Projects/Plugins/Free/ST-Warn&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "D:/개발/TEAM/Starly/Projects/Plugins/Free/ST-ItemEditor",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\개발\TEAM\Starly\Projects\Plugins\Free\ST-ItemEditor\build\libs" />
@@ -169,7 +174,10 @@
       <workItem from="1680399731698" duration="136000" />
       <workItem from="1680411430700" duration="208000" />
       <workItem from="1682685950843" duration="339000" />
-      <workItem from="1684751339201" duration="25000" />
+      <workItem from="1684751339201" duration="307000" />
+      <workItem from="1684751881877" duration="7000" />
+      <workItem from="1684831979499" duration="9000" />
+      <workItem from="1685940829269" duration="137000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1671872596464</created>
@@ -353,7 +361,21 @@
       <option name="project" value="LOCAL" />
       <updated>1684751363199</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="feat: \b">
+      <created>1684751628763</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1684751628763</updated>
+    </task>
+    <task id="LOCAL-00028" summary="project">
+      <created>1684751634761</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1684751634761</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -374,12 +396,13 @@
     <MESSAGE value="fix: TabCompleter" />
     <MESSAGE value="modify: TabCompleter" />
     <MESSAGE value="fix: Message Bug" />
-    <MESSAGE value="project" />
     <MESSAGE value="modify: version&#10;modify: command" />
     <MESSAGE value="fix: Bugs&#10;modify: message" />
     <MESSAGE value="fix: Bugs" />
     <MESSAGE value="refactor: style code" />
     <MESSAGE value="modify: version" />
-    <option name="LAST_COMMIT_MESSAGE" value="modify: version" />
+    <MESSAGE value="feat: \b" />
+    <MESSAGE value="project" />
+    <option name="LAST_COMMIT_MESSAGE" value="project" />
   </component>
 </project>
